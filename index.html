@@ -13,12 +13,12 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <style>
-
+ 
     body {
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       overflow: hidden;
     }
-
+ 
     .band-overlay {
       position: fixed;
       inset: 0;
@@ -34,11 +34,11 @@
       z-index: 0;
       pointer-events: none;
     }
-
+ 
     .band-overlay.show {
       opacity: 1;
     }
-
+ 
     .slide-photo {
       position: fixed;
       width: 260px;
@@ -51,13 +51,13 @@
       z-index: 40;
       pointer-events: none;
     }
-
+ 
     /* Corner positions */
     .slide-photo.top-left    { top: 16px;    left: 0; }
     .slide-photo.bottom-left { bottom: 16px; left: 0; }
     .slide-photo.top-right    { top: 16px;    right: 0; }
     .slide-photo.bottom-right { bottom: 16px; right: 0; }
-
+ 
     /* Slide in from off-screen on the matching side */
     .slide-photo.top-left,
     .slide-photo.bottom-left {
@@ -68,7 +68,7 @@
       transform: translateX(0%) rotate(-8deg);
       opacity: 1;
     }
-
+ 
     .slide-photo.top-right,
     .slide-photo.bottom-right {
       transform: translateX(150%) rotate(8deg);
@@ -78,14 +78,31 @@
       transform: translateX(0%) rotate(8deg);
       opacity: 1;
     }
-
+ 
     @media (max-width: 640px) {
       .slide-photo {
-        width: 150px;
-        height: 195px;
+        width: 120px;
+        height: 155px;
       }
     }
-
+ 
+    @media (max-width: 420px) {
+      .slide-photo {
+        width: 90px;
+        height: 120px;
+      }
+      /* Nudge them slightly off the edge so they peek in from the
+         very corner instead of overlapping the card text */
+      .slide-photo.top-left,
+      .slide-photo.bottom-left {
+        left: -20px;
+      }
+      .slide-photo.top-right,
+      .slide-photo.bottom-right {
+        right: -20px;
+      }
+    }
+ 
   </style>
 
 </head>
